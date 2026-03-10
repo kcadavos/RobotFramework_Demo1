@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-09T21:52:18.942254" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-09T21:54:54.578111" rpa="false" schemaversion="5">
 <suite id="s1" name="openWebsite" source="/Users/karen/RobotFramework_Demo1/automation/openWebsite.robot">
 <test id="s1-t1" name="OpenELearningWebsite" line="13">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-03-09T21:52:19.030034" level="INFO">Opening browser 'Chrome' to base url 'https://coffee-cart.app'.</msg>
+<msg time="2026-03-09T21:54:54.664988" level="INFO">Opening browser 'Chrome' to base url 'https://coffee-cart.app'.</msg>
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-03-09T21:52:19.029907" elapsed="1.883492"/>
+<status status="PASS" start="2026-03-09T21:54:54.664859" elapsed="1.751888"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-03-09T21:52:20.913770" elapsed="0.338211"/>
+<status status="PASS" start="2026-03-09T21:54:56.417162" elapsed="0.332630"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
 <arg>${time}</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-03-09T21:52:21.252222" elapsed="0.000965"/>
+<status status="PASS" start="2026-03-09T21:54:56.750014" elapsed="0.001415"/>
 </kw>
 <kw name="AddCoffeeAndCheckout">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-03-09T21:52:21.254067" level="INFO">Clicking element 'xpath=//div[@data-test='Espresso_Macchiato']'.</msg>
+<msg time="2026-03-09T21:54:56.752672" level="INFO">Clicking element 'xpath=//div[@data-test='Espresso_Macchiato']'.</msg>
 <arg>${espresso_machiatoxpath}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-09T21:52:21.253769" elapsed="0.052099"/>
+<status status="PASS" start="2026-03-09T21:54:56.752290" elapsed="0.052358"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-03-09T21:52:21.306173" level="INFO">Clicking button '//*[@id="app"]/div[2]/div[1]/button'.</msg>
-<arg>${buttonxpath}</arg>
+<msg time="2026-03-09T21:54:56.804884" level="INFO">Clicking button 'class:pay'.</msg>
+<arg>class:pay</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-09T21:52:21.306003" elapsed="0.036023"/>
+<status status="PASS" start="2026-03-09T21:54:56.804762" elapsed="0.031713"/>
 </kw>
-<status status="PASS" start="2026-03-09T21:52:21.253473" elapsed="0.088698"/>
+<status status="PASS" start="2026-03-09T21:54:56.751858" elapsed="0.084695"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-03-09T21:52:21.342410" elapsed="0.079472"/>
+<status status="PASS" start="2026-03-09T21:54:56.836740" elapsed="0.069341"/>
 </kw>
-<status status="PASS" start="2026-03-09T21:52:19.029442" elapsed="2.392542"/>
+<status status="PASS" start="2026-03-09T21:54:54.664411" elapsed="2.241778"/>
 </test>
-<status status="PASS" start="2026-03-09T21:52:18.942795" elapsed="2.479503"/>
+<status status="PASS" start="2026-03-09T21:54:54.579003" elapsed="2.327535"/>
 </suite>
 <statistics>
 <total>

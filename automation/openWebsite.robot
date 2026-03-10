@@ -20,4 +20,4 @@ OpenELearningWebsite
 *** Keywords ***
 AddCoffeeAndCheckout
     Click Element    ${espresso_machiatoxpath}
-    Click Button   ${buttonxpath}
+    Click Button   class:pay
