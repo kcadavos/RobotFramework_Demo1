@@ -15,6 +15,7 @@ OpenELearningWebsite
     Maximize browser window
     set selenium Implicit Wait   ${time}
     AddCoffeeAndCheckout
+    [Teardown]    Close Browser
 
 *** Keywords ***
 AddCoffeeAndCheckout
