@@ -10,7 +10,7 @@ ${espresso_machiatoxpath}      xpath=//div[@data-test='Espresso_Macchiato']
 ${buttonxpath}    //*[@id="app"]/div[2]/div[1]/button
 
 *** Test Cases ***
-OpenELearningWebsite
+CoffeeCartWebsite
     Open Browser   ${url}   ${browser}
     Maximize browser window
     set selenium Implicit Wait   ${time}
