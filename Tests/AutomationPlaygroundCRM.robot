@@ -13,7 +13,7 @@ ${browser}    Chrome
 ${url}    https://www.automationplayground.com/crm/
 ${USERNAME}    admin@robotframeworktutorial.com
 ${PASSWORD}    qwe
-
+@{CUSTOMERINFO}    karen@gmail.com    karen    Cadavos   Maynila    CA    female
 
 *** Test Cases ***
 User Can Login
@@ -28,6 +28,6 @@ User Can Add Customer
     [Tags]    TC1002    SmokeTest    AddCustomer 
     Log              Test Case to add customer starting
     CRM.Sign in to CRM application    ${USERNAME}    ${PASSWORD}
-    CRM.Add New Customer
+    CRM.Add New Customer    @{CUSTOMERINFO}
   
     

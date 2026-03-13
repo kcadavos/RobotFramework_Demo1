@@ -13,23 +13,28 @@ Sign in to CRM application
     Page Should Contain   Our Happy Customers
     
 Add New Customer
+    [Arguments]    @{CUSTOMERINFO}
     Click Link   New Customer
     Page Should Contain    Add Customer
-    Enter Email
-    Enter First Name
-    Enter Last Name    
-    Input Text    id=City    Maynila
-    Select From List By Value    id=StateOrRegion    CA
-    Select Radio Button    gender   male
+    Log    Customr Info: ${CUSTOMERINFO}[0], ${CUSTOMERINFO}[1]
+    Enter Email     ${CUSTOMERINFO}[0]
+    Enter First Name    ${CUSTOMERINFO}[1]
+    Enter Last Name     ${CUSTOMERINFO}[2]   
+    Input Text    id=City    ${CUSTOMERINFO}[3]
+    Select From List By Value    id=StateOrRegion    ${CUSTOMERINFO}[4]
+    Select Radio Button    gender   ${CUSTOMERINFO}[5]
     Select Checkbox    promos-name   
     Click Button   Submit
     Wait Until Page Contains    Success! New customer added.
 
 Enter Email
-     Input Text    id=EmailAddress    karen@gmail.com
+    [Arguments]    ${email}
+     Input Text    id=EmailAddress    ${email}
 
 Enter First Name
-      Input Text     id=FirstName   Karen
+    [Arguments]    ${firstName}    
+      Input Text     id=FirstName   ${firstName}
 
 Enter Last Name
-     Input Text    id=LastName    Carter
+    [Arguments]    ${lastName}
+     Input Text    id=LastName    ${lastName}
