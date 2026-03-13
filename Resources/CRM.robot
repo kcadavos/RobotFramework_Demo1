@@ -1,7 +1,15 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource   ../Resources/PO/SignInPage.robot
 
 *** Keywords ***
+Sign in to CRM application
+    SignInPage.Load Page
+    SignInpage.Verify Page
+    Input Text        id=email-id     admin@robotframeworktutorial.com
+    Input Text    id=password    qwe
+    Click Button    id=submit-id
+    Page Should Contain   Our Happy Customers
     
 Add New Customer
     Click Link   New Customer
