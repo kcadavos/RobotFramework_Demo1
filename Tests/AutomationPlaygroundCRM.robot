@@ -2,6 +2,7 @@
 Documentation    This is the test suite for CRM application.
 Resource   ../Resources/CRM.robot
 Resource    ../Resources/common.robot
+Resource    ../Resources/PO/SignIn.robot
 Suite Setup    Inserting Suite Test data
 Test Setup    Open CRM application
 Test Teardown    End Web Test
