@@ -1,15 +1,16 @@
 *** Settings ***
 Library  SeleniumLibrary
+Resource  ../Resources/PO/Home.robot
 
 *** Keywords ***
-Open CRM application
-    Open Browser     https://www.automationplayground.com/crm/    Chrome
+Go to "Home"page
+    Home.Navigate to
     Maximize Browser Window
     Set Selenium Speed    .2s
     Set Selenium Timeout    10s
-    Page Should Contain    Customers Are Priority One!
+    Home.Verify Page Loaded
 End Web Test
-    Close Browser
+    Close All Browsers
 
 Inserting Suite Test data
     Log    Inserting Test Data

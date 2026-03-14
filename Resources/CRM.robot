@@ -1,40 +1,41 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../Resources/PO/SignInPage.robot
+Resource    ../Resources/PO/Topnav.robot
+Resource   ../Resources/PO/Home.robot
+Resource   ../Resources/PO/SignInPage.robot
+Resource   ../Resources/PO/CustomersList.robot
+Resource   ../Resources/PO/Customer.robot
+Resource   ../Resources/PO/LogOutPage.robot
 
 *** Keywords ***
+Go To Homepage
+    Home.Navigate to
+    Home.Verify Page Loaded
+    
 Sign in to CRM application
     [Arguments]    ${USERNAME}    ${PASSWORD}
-    SignInPage.Load Page
-    SignInpage.Verify Page
-    Input Text        id=email-id    ${USERNAME}
-    Input Text    id=password       ${PASSWORD}     
-    Click Button    id=submit-id
-    Page Should Contain   Our Happy Customers
+    Topnav.Load SignIn
+    Topnav.Verify SignIn Page Loaded
+    SignInPage.Enter Email    ${USERNAME}
+    SignInPage.Enter Password    ${PASSWORD}
+    SignInPage.Click "Submit" button
+    CustomersList.Verify SignIn
     
 Add New Customer
     [Arguments]    @{CUSTOMERINFO}
-    Click Link   New Customer
-    Page Should Contain    Add Customer
-    Log    Customr Info: ${CUSTOMERINFO}[0], ${CUSTOMERINFO}[1]
-    Enter Email     ${CUSTOMERINFO}[0]
-    Enter First Name    ${CUSTOMERINFO}[1]
-    Enter Last Name     ${CUSTOMERINFO}[2]   
-    Input Text    id=City    ${CUSTOMERINFO}[3]
-    Select From List By Value    id=StateOrRegion    ${CUSTOMERINFO}[4]
-    Select Radio Button    gender   ${CUSTOMERINFO}[5]
-    Select Checkbox    promos-name   
-    Click Button   Submit
-    Wait Until Page Contains    Success! New customer added.
+    CustomersList.Load Add Customer
+    Customer.Verify Page Loaded
+    Customer.Enter "Email" Field
+    Customer.Enter "First Name" Field
+    Customer.Enter "Last Name" field
+    Customer.Enter "City" field
+    Customer.Select "State" from dropdown
+    Customer.Select "Gender" radio button
+    Customer.Check "promo" checkbox
+    Customer.submit New Customer
+    CustomersList.Verify Customer Added Successfully
 
-Enter Email
-    [Arguments]    ${email}
-     Input Text    id=EmailAddress    ${email}
 
-Enter First Name
-    [Arguments]    ${firstName}    
-      Input Text     id=FirstName   ${firstName}
-
-Enter Last Name
-    [Arguments]    ${lastName}
-     Input Text    id=LastName    ${lastName}
+Sign out of CRM application
+    Topnav.Load SignOut
+    LogOutPage.Verify SignOut Page Loaded
