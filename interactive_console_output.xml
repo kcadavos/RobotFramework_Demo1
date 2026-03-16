@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-13T22:57:06.551946" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-15T23:29:01.491093" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot Interactive Console" source="/Users/karen/.vscode/extensions/robocorp.robotframework-lsp-1.13.0/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" owner="MainLoop">
-<status status="PASS" start="2026-03-13T22:57:06.577318" elapsed="3.286213"/>
+<status status="PASS" start="2026-03-15T23:29:01.517437" elapsed="3.868614"/>
 </kw>
-<status status="PASS" start="2026-03-13T22:57:06.576929" elapsed="3.286957"/>
+<status status="PASS" start="2026-03-15T23:29:01.517029" elapsed="3.869395"/>
 </test>
-<status status="PASS" start="2026-03-13T22:57:06.553120" elapsed="3.311475"/>
+<status status="PASS" start="2026-03-15T23:29:01.492332" elapsed="3.894759"/>
 </suite>
 <statistics>
 <total>
@@ -20,7 +20,6 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2026-03-13T22:57:06.548581" level="WARN">Error in file '/Users/karen/.vscode/extensions/robocorp.robotframework-lsp-1.13.0/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot' on line 4: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
-<msg time="2026-03-13T22:57:07.473905" level="ERROR">Error in file 'None' on line 2: Creating keyword '' failed: User keyword name cannot be empty.</msg>
+<msg time="2026-03-15T23:29:01.486698" level="WARN">Error in file '/Users/karen/.vscode/extensions/robocorp.robotframework-lsp-1.13.0/src/robotframework_ls/vendored/robotframework_interactive/robot_interactive_console.robot' on line 4: Singular section headers like '*** Test Case ***' are deprecated. Use plural format like '*** Test Cases ***' instead.</msg>
 </errors>
 </robot>

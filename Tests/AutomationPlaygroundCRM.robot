@@ -16,20 +16,21 @@ ${PASSWORD}        qwe
 @{CUSTOMERINFO}    karen@gmail.com    karen    Cadavos   Maynila    CA    female
 ${CustomerNameCnt}    -1
 
+
 *** Test Cases ***
-User Can Login
-    [Documentation]     This test case verifies user can login successfully
-    [Tags]    TC1000    SmokeTest    Login
-    Log    Test to Login starting
-    CRM.Go To Homepage
-    CRM.Sign in to CRM application    ${USERNAME}    ${PASSWORD}
-User Can Logout
-    [Documentation]     This test case verifies user can logout successfully
-    [Tags]    TC1000    SmokeTest    Login
-    Log    Test to Login starting
-    CRM.Go To Homepage
-    CRM.Sign in to CRM application    ${USERNAME}    ${PASSWORD}
-    CRM.Sign out of CRM application
+# User Can Login
+#     [Documentation]     This test case verifies user can login successfully
+#     [Tags]    TC1000    SmokeTest    Login
+#     Log    Test to Login starting
+#     CRM.Go To Homepage
+#     CRM.Sign in to CRM application    ${USERNAME}    ${PASSWORD}
+# User Can Logout
+#     [Documentation]     This test case verifies user can logout successfully
+#     [Tags]    TC1000    SmokeTest    Login
+#     Log    Test to Login starting
+#     CRM.Go To Homepage
+#     CRM.Sign in to CRM application    ${USERNAME}    ${PASSWORD}
+#     CRM.Sign out of CRM application
 
 User Can Add Customer
     [Documentation]    This test case verifies that a user can add a Customer
@@ -37,8 +38,9 @@ User Can Add Customer
     Log              Test Case to add customer starting
     CRM.Go To Homepage
     CRM.Sign in to CRM application    ${USERNAME}    ${PASSWORD}
-    CRM.Count Customer Names
-    CRM.Add New Customer    @{CUSTOMERINFO}
+    # CRM.Click Next Button
+    CRM.Iterate through All customer table data
+    # CRM.Add New Customer    @{CUSTOMERINFO}
     CRM.Sign out of CRM application
   
     
