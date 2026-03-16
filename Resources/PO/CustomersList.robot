@@ -17,3 +17,4 @@ Load Add Customer
 
 Verify Customer Added Successfully
     Wait Until Page Contains    ${CUSTOMER_ADDED_SUCCESS_LABEL}
+

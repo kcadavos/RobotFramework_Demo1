@@ -18,7 +18,7 @@ Enter "City" field
     Input Text    id=City    ${CUSTOMERINFO}[3]
 
 Select "State" from dropdown
-    Select From List By Value    id=StateOrRegion    ${CUSTOMERINFO}[4]
+    Select From List By Value    id:StateOrRegion    ${CUSTOMERINFO}[4]
 
 Select "Gender" radio button
     Select Radio Button    gender   ${CUSTOMERINFO}[5]

@@ -14,6 +14,7 @@ ${URL}             https://www.automationplayground.com/crm/
 ${USERNAME}        admin@robotframeworktutorial.com
 ${PASSWORD}        qwe
 @{CUSTOMERINFO}    karen@gmail.com    karen    Cadavos   Maynila    CA    female
+${CustomerNameCnt}    -1
 
 *** Test Cases ***
 User Can Login
@@ -36,6 +37,7 @@ User Can Add Customer
     Log              Test Case to add customer starting
     CRM.Go To Homepage
     CRM.Sign in to CRM application    ${USERNAME}    ${PASSWORD}
+    CRM.Count Customer Names
     CRM.Add New Customer    @{CUSTOMERINFO}
     CRM.Sign out of CRM application
   

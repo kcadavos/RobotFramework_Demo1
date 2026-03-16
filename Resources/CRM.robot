@@ -39,3 +39,12 @@ Add New Customer
 Sign out of CRM application
     Topnav.Load SignOut
     LogOutPage.Verify SignOut Page Loaded
+
+Count Customer Names
+    ${customerNamesCnt}=  Get Element Count    locator= xpath://*[@id='customers']/tbody/tr
+    Log To Console    \n
+    FOR     ${row_num}  IN RANGE     1  ${customerNamesCnt}+1     #locator starts with 0 but xpath starts with 1
+        ${rowText}=    Get Text  xpath://*[@id='customers']/tbody/tr[${row_num}]
+        Log To Console    ROW TEXT IS: ${rowText}
+    END
+   

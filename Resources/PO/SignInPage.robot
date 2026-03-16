@@ -12,11 +12,11 @@ Verify SignIn Page Loaded
 
 Enter Email
     [Arguments]    ${EMAIL}
-    Input Text    id=email-id    ${EMAIL}
+    Input Text    id:email-id    ${EMAIL}
 
 Enter Password 
     [Arguments]    ${PASSWORD}
-    Input Text    id=password       ${PASSWORD}
+    Input Text    id:password       ${PASSWORD}
 
 Click "Submit" button
     Click Button   ${Submit_BUTTON}

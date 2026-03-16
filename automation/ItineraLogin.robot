@@ -27,9 +27,10 @@ LoginItinera
 LoginOnly
     [arguments]     ${username}    ${password}
         Maximize Browser Window
-        Input Text     xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/input      ${username}
-        Input Text    xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/input     ${password}
-        Click Button    xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/button
+        Input Text     xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/input      ${username}
+        # Input Text    placeholder:Email Address     ${username}
+        Input Text    xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/input     ${password}
+        Click Button    xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/button
        
 Open the url
     Open Browser    https://theitinera.app/LoginPage    Chrome
