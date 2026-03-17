@@ -1,783 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-16T12:34:39.717186" rpa="false" schemaversion="5">
-<suite id="s1" name="AutomationPlaygroundCRM" source="/Users/karen/RobotFramework_Demo1/Tests/AutomationPlaygroundCRM.robot">
-<kw name="Inserting Suite Test data" owner="common" type="SETUP">
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-03-16T12:34:39.830376" level="INFO">Inserting Test Data</msg>
-<arg>Inserting Test Data</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-03-16T12:34:39.830182" elapsed="0.000242"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:39.829626" elapsed="0.000871"/>
-</kw>
-<test id="s1-t1" name="User Can Add Customer" line="35">
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-03-16T12:34:39.831002" level="INFO">Test Case to add customer starting</msg>
-<arg>Test Case to add customer starting</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-03-16T12:34:39.830856" elapsed="0.000180"/>
-</kw>
-<kw name="Go To Homepage" owner="CRM">
-<kw name="Navigate to" owner="Home">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-16T19:27:30.264339" rpa="false" schemaversion="5">
+<suite id="s1" name="ItineraLogin" source="/Users/karen/RobotFramework_Demo1/automation/ItineraLogin.robot">
+<test id="s1-t1" name="Access Login" line="27">
+<kw name="Open the url" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:39.831677" level="INFO">Opening browser 'Chrome' to base url 'https://www.automationplayground.com/crm/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
+<msg time="2026-03-16T19:27:30.400701" level="INFO">Opening browser 'Chrome' to base url 'https://theitinera.app/LoginPage'.</msg>
+<arg>https://theitinera.app/LoginPage</arg>
+<arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-03-16T12:34:39.831531" elapsed="1.838438"/>
+<status status="PASS" start="2026-03-16T19:27:30.400537" elapsed="3.058578"/>
 </kw>
-<status status="PASS" start="2026-03-16T12:34:39.831365" elapsed="1.838971"/>
+<status status="PASS" start="2026-03-16T19:27:30.399951" elapsed="3.062968"/>
 </kw>
-<kw name="Verify Page Loaded" owner="Home">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${HOME_HEADER_LABEL}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-03-16T12:34:41.671071" elapsed="0.008916"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-03-16T19:27:33.466464" level="INFO">${user} = {'username': 'karencadavos@gmail.com', 'password': '123', 'name': 'Karen Anne'}</msg>
+<var>${user}</var>
+<arg>${CustomerList}[${UserToLogin}]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-03-16T19:27:33.464005" elapsed="0.002500"/>
 </kw>
-<status status="PASS" start="2026-03-16T12:34:41.670710" elapsed="0.009365"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user}[username]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-16T19:27:33.466662" elapsed="0.000271"/>
 </kw>
-<status status="PASS" start="2026-03-16T12:34:39.831190" elapsed="1.848927"/>
+<kw name="LoginItinera">
+<kw name="LoginOnly">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-16T19:27:33.467773" elapsed="0.353209"/>
 </kw>
-<kw name="Sign in to CRM application" owner="CRM">
-<kw name="Load SignIn" owner="Topnav">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:41.681125" level="INFO">Clicking link 'Sign In'.</msg>
-<arg>${TOPNAV_SIGNIN_LINK}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:41.680813" elapsed="0.270427"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:41.680653" elapsed="0.270694"/>
-</kw>
-<kw name="Verify SignIn Page Loaded" owner="Topnav">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${SIGNIN_PAGE_HEADER_LABEL}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-03-16T12:34:41.951764" elapsed="0.007623"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:41.951529" elapsed="0.007939"/>
-</kw>
-<kw name="Enter Email" owner="SignInPage">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:41.959990" level="INFO">Typing text 'admin@robotframeworktutorial.com' into text field 'id:email-id'.</msg>
-<arg>id:email-id</arg>
-<arg>${EMAIL}</arg>
+<msg time="2026-03-16T19:27:33.821710" level="INFO">Typing text 'karencadavos@gmail.com' into text field 'xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/input'.</msg>
+<arg>xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/input</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:41.959832" elapsed="0.138336"/>
+<status status="PASS" start="2026-03-16T19:27:33.821199" elapsed="0.152010"/>
 </kw>
-<arg>${USERNAME}</arg>
-<status status="PASS" start="2026-03-16T12:34:41.959607" elapsed="0.138665"/>
-</kw>
-<kw name="Enter Password" owner="SignInPage">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.098838" level="INFO">Typing text 'qwe' into text field 'id:password'.</msg>
-<arg>id:password</arg>
-<arg>${PASSWORD}</arg>
+<msg time="2026-03-16T19:27:33.973628" level="INFO">Typing text '123' into text field 'xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/input'.</msg>
+<arg>xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/input</arg>
+<arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.098686" elapsed="0.063137"/>
+<status status="PASS" start="2026-03-16T19:27:33.973398" elapsed="0.043092"/>
 </kw>
-<arg>${PASSWORD}</arg>
-<status status="PASS" start="2026-03-16T12:34:42.098436" elapsed="0.063485"/>
-</kw>
-<kw name="Click &quot;Submit&quot; button" owner="SignInPage">
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.162469" level="INFO">Clicking button 'id=submit-id'.</msg>
-<arg>${Submit_BUTTON}</arg>
+<msg time="2026-03-16T19:27:34.016814" level="INFO">Clicking button 'xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/button'.</msg>
+<arg>xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/button</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.162290" elapsed="0.047115"/>
+<status status="PASS" start="2026-03-16T19:27:34.016649" elapsed="0.049823"/>
 </kw>
-<status status="PASS" start="2026-03-16T12:34:42.162077" elapsed="0.047423"/>
+<arg>${user}[username]</arg>
+<arg>${user}[password]</arg>
+<status status="PASS" start="2026-03-16T19:27:33.467525" elapsed="0.599055"/>
 </kw>
-<kw name="Verify SignIn" owner="CustomersList">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${CUSTOMERS_LIST_PAGE_HEADER_LABEL}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.209865" elapsed="0.383207"/>
+<kw name="Verify Login Successful">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:greetingname-desktop</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-16T19:27:34.066991" elapsed="1.081425"/>
 </kw>
-<status status="PASS" start="2026-03-16T12:34:42.209653" elapsed="0.383609"/>
-</kw>
-<arg>${USERNAME}</arg>
-<arg>${PASSWORD}</arg>
-<status status="PASS" start="2026-03-16T12:34:41.680370" elapsed="0.912966"/>
-</kw>
-<kw name="Iterate through All customer table data" owner="CRM">
-<variable name="${iterationCnt}">
-<msg time="2026-03-16T12:34:42.594262" level="INFO">${iterationCnt} = 0</msg>
-<var>0</var>
-<status status="PASS" start="2026-03-16T12:34:42.594107" elapsed="0.000187"/>
-</variable>
-<while condition="${button_enabled}">
-<iter>
-<kw name="Iterate through current page customer names list" owner="CRM">
-<kw name="Create List" owner="BuiltIn">
-<msg time="2026-03-16T12:34:42.595522" level="INFO">@{CUSTOMERNAMESLIST} = [ ]</msg>
-<var>@{CUSTOMERNAMESLIST}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.595081" elapsed="0.000472"/>
-</kw>
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.605059" level="INFO">${customerNamesCnt} = 6</msg>
-<var>${customerNamesCnt}</var>
-<arg>locator= xpath://*[@id='customers']/tbody/tr</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.595687" elapsed="0.009416"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>\n</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.605263" elapsed="0.000307"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
 <kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.623305" level="INFO">${rowText} = 1 Mark Tompson the_mark7</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
+<msg time="2026-03-16T19:27:35.161514" level="INFO">${userInUI} = Karen Anne</msg>
+<var>${userInUI}</var>
+<arg>id:greetingname-desktop</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.606044" elapsed="0.017296"/>
+<status status="PASS" start="2026-03-16T19:27:35.148577" elapsed="0.012973"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.623461" elapsed="0.000256"/>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${userInUI}</arg>
+<arg>${user}[name]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-03-16T19:27:35.161668" elapsed="0.000304"/>
 </kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.623818" elapsed="0.000163"/>
+<arg>${user}</arg>
+<status status="PASS" start="2026-03-16T19:27:34.066735" elapsed="1.095298"/>
 </kw>
-<var name="${row_num}">1</var>
-<status status="PASS" start="2026-03-16T12:34:42.605930" elapsed="0.018087"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.640584" level="INFO">${rowText} = 2 Ashley Jacobs ash11927</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.624200" elapsed="0.016418"/>
+<arg>${user}</arg>
+<status status="PASS" start="2026-03-16T19:27:33.467217" elapsed="1.694855"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.640747" elapsed="0.000265"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.641102" elapsed="0.000139"/>
-</kw>
-<var name="${row_num}">2</var>
-<status status="PASS" start="2026-03-16T12:34:42.624121" elapsed="0.017153"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.653699" level="INFO">${rowText} = 3 Audrey Ann audann84</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.641439" elapsed="0.012293"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.653849" elapsed="0.000242"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.654180" elapsed="0.000139"/>
-</kw>
-<var name="${row_num}">3</var>
-<status status="PASS" start="2026-03-16T12:34:42.641368" elapsed="0.012986"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.666480" level="INFO">${rowText} = 4 John Robinson jr5527</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.654517" elapsed="0.011996"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.666631" elapsed="0.000247"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.666967" elapsed="0.000133"/>
-</kw>
-<var name="${row_num}">4</var>
-<status status="PASS" start="2026-03-16T12:34:42.654443" elapsed="0.012693"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.679200" level="INFO">${rowText} = 5 Aaron Butler aaron_butler</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.667292" elapsed="0.011944"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.679354" elapsed="0.000291"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.679738" elapsed="0.000141"/>
-</kw>
-<var name="${row_num}">5</var>
-<status status="PASS" start="2026-03-16T12:34:42.667221" elapsed="0.012694"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.692167" level="INFO">${rowText} = 6 Chris Albert cab79</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.680078" elapsed="0.012123"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.692319" elapsed="0.000237"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.692642" elapsed="0.000130"/>
-</kw>
-<var name="${row_num}">6</var>
-<status status="PASS" start="2026-03-16T12:34:42.680003" elapsed="0.012802"/>
-</iter>
-<var>${row_num}</var>
-<value>1</value>
-<value>${customerNamesCnt}+1</value>
-<status status="PASS" start="2026-03-16T12:34:42.605646" elapsed="0.087197"/>
-</for>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ALL CUSTOMER DATA: ${CUSTOMERNAMESLIST}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.692943" elapsed="0.000176"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:42.594844" elapsed="0.098325"/>
-</kw>
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.705552" level="INFO">${class} = page-item</msg>
-<var>${class}</var>
-<arg>xpath://a[contains(text(),'Next')]/..</arg>
-<arg>class</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.693249" elapsed="0.012335"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Not Contain" owner="BuiltIn">
-<arg>${class}</arg>
-<arg>disabled</arg>
-<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.706086" elapsed="0.000278"/>
-</kw>
-<msg time="2026-03-16T12:34:42.706437" level="INFO">${button_enabled} = True</msg>
-<var>${button_enabled}</var>
-<arg>Should Not Contain</arg>
-<arg>${class}</arg>
-<arg>disabled</arg>
-<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.705725" elapsed="0.000732"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${button_enabled}">
-<break>
-<status status="NOT RUN" start="2026-03-16T12:34:42.706670" elapsed="0.000022"/>
-</break>
-<status status="NOT RUN" start="2026-03-16T12:34:42.706537" elapsed="0.000183"/>
-</branch>
-<status status="PASS" start="2026-03-16T12:34:42.706514" elapsed="0.000237"/>
-</if>
-<kw name="Click Next Button" owner="CRM">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.707142" level="INFO">Clicking link 'xpath://a[contains(text(),'Next')]'.</msg>
-<arg>${Next_Button_Locator}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.707018" elapsed="0.148346"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:42.706853" elapsed="0.148626"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:42.594389" elapsed="0.261133"/>
-</iter>
-<iter>
-<kw name="Iterate through current page customer names list" owner="CRM">
-<kw name="Create List" owner="BuiltIn">
-<msg time="2026-03-16T12:34:42.856274" level="INFO">@{CUSTOMERNAMESLIST} = [ ]</msg>
-<var>@{CUSTOMERNAMESLIST}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.856055" elapsed="0.000243"/>
-</kw>
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.861167" level="INFO">${customerNamesCnt} = 6</msg>
-<var>${customerNamesCnt}</var>
-<arg>locator= xpath://*[@id='customers']/tbody/tr</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.856387" elapsed="0.004812"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>\n</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.861313" elapsed="0.000226"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.871540" level="INFO">${rowText} = 1 Mark Tompson the_mark7</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.861888" elapsed="0.009683"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.871683" elapsed="0.000247"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.872022" elapsed="0.000144"/>
-</kw>
-<var name="${row_num}">1</var>
-<status status="PASS" start="2026-03-16T12:34:42.861806" elapsed="0.010394"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.881624" level="INFO">${rowText} = 2 Ashley Jacobs ash11927</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.872361" elapsed="0.009295"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.881796" elapsed="0.000236"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.882122" elapsed="0.000138"/>
-</kw>
-<var name="${row_num}">2</var>
-<status status="PASS" start="2026-03-16T12:34:42.872286" elapsed="0.010009"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.891641" level="INFO">${rowText} = 3 Audrey Ann audann84</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.882454" elapsed="0.009216"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.891773" elapsed="0.000242"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.892102" elapsed="0.000131"/>
-</kw>
-<var name="${row_num}">3</var>
-<status status="PASS" start="2026-03-16T12:34:42.882383" elapsed="0.009885"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.901986" level="INFO">${rowText} = 4 John Robinson jr5527</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.892421" elapsed="0.009597"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.902140" elapsed="0.000245"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.902473" elapsed="0.000138"/>
-</kw>
-<var name="${row_num}">4</var>
-<status status="PASS" start="2026-03-16T12:34:42.892351" elapsed="0.010293"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.911844" level="INFO">${rowText} = 5 Aaron Butler aaron_butler</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.902803" elapsed="0.009073"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.911987" elapsed="0.000239"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.912315" elapsed="0.000133"/>
-</kw>
-<var name="${row_num}">5</var>
-<status status="PASS" start="2026-03-16T12:34:42.902732" elapsed="0.009751"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.922051" level="INFO">${rowText} = 6 Chris Albert cab79</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.912659" elapsed="0.009423"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.922185" elapsed="0.000224"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.922494" elapsed="0.000124"/>
-</kw>
-<var name="${row_num}">6</var>
-<status status="PASS" start="2026-03-16T12:34:42.912571" elapsed="0.010080"/>
-</iter>
-<var>${row_num}</var>
-<value>1</value>
-<value>${customerNamesCnt}+1</value>
-<status status="PASS" start="2026-03-16T12:34:42.861598" elapsed="0.061091"/>
-</for>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ALL CUSTOMER DATA: ${CUSTOMERNAMESLIST}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.922783" elapsed="0.000171"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:42.855858" elapsed="0.067146"/>
-</kw>
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.929987" level="INFO">${class} = page-item</msg>
-<var>${class}</var>
-<arg>xpath://a[contains(text(),'Next')]/..</arg>
-<arg>class</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.923083" elapsed="0.006936"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Not Contain" owner="BuiltIn">
-<arg>${class}</arg>
-<arg>disabled</arg>
-<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.930392" elapsed="0.000214"/>
-</kw>
-<msg time="2026-03-16T12:34:42.930680" level="INFO">${button_enabled} = True</msg>
-<var>${button_enabled}</var>
-<arg>Should Not Contain</arg>
-<arg>${class}</arg>
-<arg>disabled</arg>
-<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.930146" elapsed="0.000554"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${button_enabled}">
-<break>
-<status status="NOT RUN" start="2026-03-16T12:34:42.930902" elapsed="0.000019"/>
-</break>
-<status status="NOT RUN" start="2026-03-16T12:34:42.930778" elapsed="0.000174"/>
-</branch>
-<status status="PASS" start="2026-03-16T12:34:42.930757" elapsed="0.000219"/>
-</if>
-<kw name="Click Next Button" owner="CRM">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:42.931367" level="INFO">Clicking link 'xpath://a[contains(text(),'Next')]'.</msg>
-<arg>${Next_Button_Locator}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:42.931248" elapsed="0.132304"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:42.931079" elapsed="0.132592"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:42.855564" elapsed="0.208143"/>
-</iter>
-<iter>
-<kw name="Iterate through current page customer names list" owner="CRM">
-<kw name="Create List" owner="BuiltIn">
-<msg time="2026-03-16T12:34:43.064459" level="INFO">@{CUSTOMERNAMESLIST} = [ ]</msg>
-<var>@{CUSTOMERNAMESLIST}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.064229" elapsed="0.000256"/>
-</kw>
-<kw name="Get Element Count" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.069374" level="INFO">${customerNamesCnt} = 6</msg>
-<var>${customerNamesCnt}</var>
-<arg>locator= xpath://*[@id='customers']/tbody/tr</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.064575" elapsed="0.004829"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>\n</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.069519" elapsed="0.000216"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.079484" level="INFO">${rowText} = 1 Mark Tompson the_mark7</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.070074" elapsed="0.009440"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.079646" elapsed="0.000252"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.079987" elapsed="0.000138"/>
-</kw>
-<var name="${row_num}">1</var>
-<status status="PASS" start="2026-03-16T12:34:43.069992" elapsed="0.010167"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.089868" level="INFO">${rowText} = 2 Ashley Jacobs ash11927</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.080322" elapsed="0.009575"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.089999" elapsed="0.000219"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.090301" elapsed="0.000128"/>
-</kw>
-<var name="${row_num}">2</var>
-<status status="PASS" start="2026-03-16T12:34:43.080248" elapsed="0.010213"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.099804" level="INFO">${rowText} = 3 Audrey Ann audann84</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.090613" elapsed="0.009221"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.099938" elapsed="0.000237"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.100288" elapsed="0.000252"/>
-</kw>
-<var name="${row_num}">3</var>
-<status status="PASS" start="2026-03-16T12:34:43.090543" elapsed="0.010054"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.110110" level="INFO">${rowText} = 4 John Robinson jr5527</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.100857" elapsed="0.009281"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.110236" elapsed="0.000213"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.110532" elapsed="0.000126"/>
-</kw>
-<var name="${row_num}">4</var>
-<status status="PASS" start="2026-03-16T12:34:43.100726" elapsed="0.009964"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.121139" level="INFO">${rowText} = 5 Aaron Butler aaron_butler</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.110839" elapsed="0.010330"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.121277" elapsed="0.000229"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.121591" elapsed="0.000133"/>
-</kw>
-<var name="${row_num}">5</var>
-<status status="PASS" start="2026-03-16T12:34:43.110770" elapsed="0.010988"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.130858" level="INFO">${rowText} = 6 Chris Albert cab79</msg>
-<var>${rowText}</var>
-<arg>xpath://*[@id='customers']/tbody/tr[${row_num}]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.121908" elapsed="0.008981"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ROW TEXT IS: ${rowText}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.130995" elapsed="0.000220"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${CUSTOMERNAMESLIST}</arg>
-<arg>${rowText}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.131299" elapsed="0.000130"/>
-</kw>
-<var name="${row_num}">6</var>
-<status status="PASS" start="2026-03-16T12:34:43.121839" elapsed="0.009623"/>
-</iter>
-<var>${row_num}</var>
-<value>1</value>
-<value>${customerNamesCnt}+1</value>
-<status status="PASS" start="2026-03-16T12:34:43.069789" elapsed="0.061709"/>
-</for>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ALL CUSTOMER DATA: ${CUSTOMERNAMESLIST}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.131586" elapsed="0.000171"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:43.064031" elapsed="0.067775"/>
-</kw>
-<kw name="Get Element Attribute" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.138634" level="INFO">${class} = page-item disabled</msg>
-<var>${class}</var>
-<arg>xpath://a[contains(text(),'Next')]/..</arg>
-<arg>class</arg>
-<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.131884" elapsed="0.006777"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Not Contain" owner="BuiltIn">
-<msg time="2026-03-16T12:34:43.139272" level="FAIL">'page-item disabled' contains 'disabled'</msg>
-<arg>${class}</arg>
-<arg>disabled</arg>
-<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="FAIL" start="2026-03-16T12:34:43.138992" elapsed="0.000411">'page-item disabled' contains 'disabled'</status>
-</kw>
-<msg time="2026-03-16T12:34:43.139485" level="INFO">${button_enabled} = False</msg>
-<var>${button_enabled}</var>
-<arg>Should Not Contain</arg>
-<arg>${class}</arg>
-<arg>disabled</arg>
-<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.138772" elapsed="0.000730"/>
-</kw>
-<if>
-<branch type="IF" condition="not ${button_enabled}">
-<break>
-<status status="PASS" start="2026-03-16T12:34:43.139685" elapsed="0.000036"/>
-</break>
-<status status="PASS" start="2026-03-16T12:34:43.139569" elapsed="0.000182"/>
-</branch>
-<status status="PASS" start="2026-03-16T12:34:43.139551" elapsed="0.000227"/>
-</if>
-<kw name="Click Next Button" owner="CRM">
-<status status="NOT RUN" start="2026-03-16T12:34:43.139880" elapsed="0.000022"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:43.063746" elapsed="0.076180"/>
-</iter>
-<status status="PASS" start="2026-03-16T12:34:42.594387" elapsed="0.545567"/>
-</while>
-<status status="PASS" start="2026-03-16T12:34:42.593854" elapsed="0.546151"/>
-</kw>
-<kw name="Sign out of CRM application" owner="CRM">
-<kw name="LOad SignOut" owner="Topnav">
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2026-03-16T12:34:43.140567" level="INFO">Clicking link 'Sign Out'.</msg>
-<arg>${TOPNAV_SIGNOUT_LINK}</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.140444" elapsed="0.138024"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:43.140312" elapsed="0.138253"/>
-</kw>
-<kw name="Verify SignOut Page Loaded" owner="LogOutPage">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${SIGNOUT_PAGE_HEADER_LABEL}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.278985" elapsed="0.007446"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:43.278751" elapsed="0.007759"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:43.140138" elapsed="0.146412"/>
-</kw>
-<doc>This test case verifies that a user can add a Customer</doc>
-<tag>AddCustomer</tag>
-<tag>SmokeTest</tag>
-<tag>TC1002</tag>
-<status status="PASS" start="2026-03-16T12:34:39.830555" elapsed="3.456152"/>
+<status status="PASS" start="2026-03-16T19:27:30.399470" elapsed="4.762720"/>
 </test>
-<kw name="Remove Suite Test data" owner="common" type="TEARDOWN">
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-03-16T12:34:43.287539" level="INFO">Removing Test Data - cleanup</msg>
-<arg>Removing Test Data - cleanup</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-03-16T12:34:43.287348" elapsed="0.000230"/>
-</kw>
-<status status="PASS" start="2026-03-16T12:34:43.287199" elapsed="0.000425"/>
-</kw>
-<doc>This is the test suite for CRM application.</doc>
-<status status="PASS" start="2026-03-16T12:34:39.718269" elapsed="3.569381"/>
+<doc>This is the test suite for Itinera Login functionality.</doc>
+<status status="PASS" start="2026-03-16T19:27:30.265313" elapsed="4.897232"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">AddCustomer</stat>
-<stat pass="1" fail="0" skip="0">SmokeTest</stat>
-<stat pass="1" fail="0" skip="0">TC1002</stat>
 </tag>
 <suite>
-<stat name="AutomationPlaygroundCRM" id="s1" pass="1" fail="0" skip="0">AutomationPlaygroundCRM</stat>
+<stat name="ItineraLogin" id="s1" pass="1" fail="0" skip="0">ItineraLogin</stat>
 </suite>
 </statistics>
 <errors>
