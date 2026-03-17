@@ -24,10 +24,15 @@ ${UserToLogin}    User1
 *** Test Cases ***
 #                     username    password
 # Valid username    ${CustomerList[${UserToLogin}][username]}    test123
-Test All Users
+Test All Users1
     [Template]    LoginItinera
     ${User1}
     ${User2}
+
+Test All Users2
+    [Template]    LoginOnly
+    kcadavos@gmail.com      123     
+    karencadavos@gmail.com  123      
 
 
 
