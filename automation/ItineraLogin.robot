@@ -21,6 +21,13 @@ ${UserToLogin}    User1
 &{User2}    username=karencadavos@gmail.com    password=123     name=Karen Anne
 &{CustomerList}   User1=${User1}    User2=${User2}
 
+
+#XPATH LOCATORS
+${email_locator}         xpath=//div[@id="login-desktop"]//input[@id="email-input"]
+${password_locator}      xpath=//div[@id="login-desktop"]//input[@id="password-input"]
+${loginbtn_locator}      xpath=//div[@id="login-desktop"]//button[@id="login-btn"]
+
+
 *** Test Cases ***
 #                     username    password
 # Valid username    ${CustomerList[${UserToLogin}][username]}    test123
@@ -50,12 +57,12 @@ LoginItinera
    
 LoginOnly
     [Arguments]     ${username}    ${password}
-        Wait Until Element Is Visible    id:email-input    10s
-        Input Text     id:email-input      ${username}
-        Wait Until Element Is Visible    id:password-input   10s
-        Input Text     id:password-input    ${password}
-        Wait Until Element Is Enabled    id:submit-btn    10s
-        Click Button   id:submit-btn
+        Wait Until Element Is Visible    ${email_locator}     10s
+        Input Text     ${email_locator}      ${username}
+        Wait Until Element Is Visible    ${password_locator}     10s
+        Input Text     ${password_locator}   ${password}
+        Wait Until Element Is Enabled    ${loginbtn_locator}   10s
+        Click Button   ${loginbtn_locator} 
        
 Open the url
     Open Browser    about:blank    Chrome
