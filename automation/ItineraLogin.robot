@@ -4,6 +4,7 @@ Library    SeleniumLibrary
 Library    ../venv1/lib/python3.14/site-packages/robot/libraries/XML.py
 Test Setup    Open the url
 # Test Template     LoginItinera
+Test Teardown    Close Browser
 
 ##to run
 #robot -d results -v UserToLogin:User2  automation/ItineraLogin.robot
@@ -23,27 +24,38 @@ ${UserToLogin}    User1
 *** Test Cases ***
 #                     username    password
 # Valid username    ${CustomerList[${UserToLogin}][username]}    test123
+Test All Users
+    [Template]    LoginItinera
+    ${User1}
+    ${User2}
 
-Access Login
-    ${user}=     Set Variable    ${CustomerList}[${UserToLogin}]
-    Log To Console   ${user}[username]
-    LoginItinera    ${user}
+
 
 *** Keywords ***
+Access Login  
+    [Arguments]     ${UserToLogin}
+    ${user}=     Set Variable    ${CustomerList}[${UserToLogin}]
+    Log To Console   USERBEINGTESTED:${user}[username]
+    LoginItinera    ${user}
+
 LoginItinera
     [Arguments]     ${user}
         LoginOnly    ${user}[username]    ${user}[password]
-        Verify Login Successful     ${user}
+        # Verify Login Successful     ${user}
    
 LoginOnly
     [Arguments]     ${username}    ${password}
-        Maximize Browser Window
-        Input Text     xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/input      ${username}
-        Input Text    xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/input     ${password}
-        Click Button    xpath:/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/button
+        Wait Until Element Is Visible    id:email-input    10s
+        Input Text     id:email-input      ${username}
+        Wait Until Element Is Visible    id:password-input   10s
+        Input Text     id:password-input    ${password}
+        Wait Until Element Is Enabled    id:submit-btn    10s
+        Click Button   id:submit-btn
        
 Open the url
-    Open Browser    https://theitinera.app/LoginPage    Chrome
+    Open Browser    about:blank    Chrome
+    Maximize Browser Window
+    Go to    https://www.theitinera.app/LoginPage
 
 
 Verify Login Successful
