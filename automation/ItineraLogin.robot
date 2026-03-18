@@ -2,9 +2,9 @@
 Documentation    This is the test suite for Itinera Login functionality.
 Library    SeleniumLibrary
 Library    ../venv1/lib/python3.14/site-packages/robot/libraries/XML.py
-Test Setup    Open the url
+# Test Setup    Open the url
 # Test Template     LoginItinera
-Test Teardown    Close Browser
+# Test Teardown    Close Browser
 
 ##to run
 #robot -d results -v UserToLogin:User2  automation/ItineraLogin.robot
@@ -29,17 +29,15 @@ ${loginbtn_locator}      xpath=//div[@id="login-desktop"]//button[@id="login-btn
 
 
 *** Test Cases ***
-#                     username    password
-# Valid username    ${CustomerList[${UserToLogin}][username]}    test123
 Test All Users1
     [Template]    LoginItinera
     ${User1}
     ${User2}
 
-Test All Users2
-    [Template]    LoginOnly
-    kcadavos@gmail.com      123     
-    karencadavos@gmail.com  123      
+# Test All Users2
+#     [Template]    LoginOnly
+#     kcadavos@gmail.com      123     
+#     karencadavos@gmail.com  123      
 
 
 
@@ -52,13 +50,16 @@ Access Login
 
 LoginItinera
     [Arguments]     ${user}
-        LoginOnly    ${user}[username]    ${user}[password]
-        # Verify Login Successful     ${user}
-   
+    Open the url
+    LoginOnly    ${user}[username]    ${user}[password]
+    Verify Login Successful     ${user}
+    Close Browser
+
 LoginOnly
     [Arguments]     ${username}    ${password}
-        Wait Until Element Is Visible    ${email_locator}     10s
+        Wait Until Element Is Visible    ${email_locator}    10s
         Input Text     ${email_locator}      ${username}
+        
         Wait Until Element Is Visible    ${password_locator}     10s
         Input Text     ${password_locator}   ${password}
         Wait Until Element Is Enabled    ${loginbtn_locator}   10s
@@ -74,8 +75,7 @@ Verify Login Successful
     [Arguments]    ${user}
         Wait Until Element Is Visible    id:greetingname-desktop   10s
         ${userInUI}=  Get Text     id:greetingname-desktop
-        # Log To Console      USER IN UI: ${userInUI}
-        # Log To Console    ${user}[name]
+
         Should Be Equal    ${userInUI}   ${user}[name]
 
 
