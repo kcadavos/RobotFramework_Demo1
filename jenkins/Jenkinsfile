@@ -1,18 +1,51 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'BASE_URL', defaultValue: 'https://theitinera.app', description: 'Frontend URL to test')
+    }
+
     stages {
-
-        stage ("Test 1"){
-            echo ("This is test 1 running")
+        stage("Clean Workspace") {
+            steps {
+                echo "Cleaning workspace..."
+                deleteDir()
+            }
         }
 
-        stage ("Test 2"){
-            echo ("This is test 2 running")
+        stage("Setup Environment") {
+            steps {
+                echo "Setting up Python environment..."
+                sh """
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install robotframework
+                    pip install -r requirements.txt || true
+                """
+            }
         }
 
-         stage ("Test 3"){
-            echo ("This is test 3 running")
+        stage("Run Robot Tests for Itinera ") {
+            steps {
+                echo "Running Robot Framework tests..."
+                sh """
+                    . venv/bin/activate
+                    robot -d results automation/ItineraLogin.robot
+                """
+            }
         }
+
+        stage("Publish Results") {
+            steps {
+                archiveArtifacts artifacts: 'results/**', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        always { echo "Pipeline finished." }
+        success { echo "All tests passed!" }
+        failure { echo "Some tests failed." }
     }
 }
