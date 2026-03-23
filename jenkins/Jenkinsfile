@@ -9,7 +9,7 @@ pipeline {
     //     string(name: 'BASE_URL', defaultValue: 'https://theitinera.app', description: 'Frontend URL to test')
     // }
 
-    // stages {
+    stages {
     //     stage("Clean Workspace") {
     //         steps {
     //             echo "Cleaning workspace..."
@@ -45,7 +45,7 @@ pipeline {
                 archiveArtifacts artifacts: 'results/**', fingerprint: true
             }
         }
-    
+    }
 
     post {
         always { echo "Pipeline finished." }
