@@ -45,11 +45,12 @@ pipeline {
                 archiveArtifacts artifacts: 'results/**', fingerprint: true
             }
         }
-    }
+    
 
     post {
         always { echo "Pipeline finished." }
         success { echo "All tests passed!" }
         failure { echo "Some tests failed." }
     }
+
 }
