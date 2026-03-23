@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage ("Test 1"){
+            echo ("This is test 1 running")
+        }
+
+        stage ("Test 2"){
+            echo ("This is test 2 running")
+        }
+
+         stage ("Test 3"){
+            echo ("This is test 3 running")
+        }
+    }
+}
