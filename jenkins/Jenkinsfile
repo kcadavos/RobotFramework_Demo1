@@ -7,8 +7,8 @@ pipeline {
             steps {
                 echo "Creating Python virtual environment and installing Robot Framework..."
                 sh """
-                    python3 -m venv venv1
-                    . venv1/bin/activate
+                    python3 -m venv venv
+                    . venv/bin/activate
                     pip install --upgrade pip
                     pip install robotframework
                     pip install robotframework-seleniumlibrary
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo "Running Robot Framework tests..."
                 sh """
-                    . venv1/bin/activate
+                    . venv/bin/activate
                     robot -d results automation/ItineraLogin.robot
                 """
             }
