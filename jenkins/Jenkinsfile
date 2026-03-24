@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-     docker {
-            image 'python:3.10'
-        }
-       }
+  agent any
      
     // parameters {
     //     string(name: 'BASE_URL', defaultValue: 'https://theitinera.app', description: 'Frontend URL to test')
@@ -20,12 +16,20 @@ pipeline {
         stage("Setup Environment") {
             steps {
                 echo "Setting up Python environment..."
-                sh """
-                    python3 -m venv venv
-                    . venv/bin/activate
-                    pip install --upgrade pip
-                    pip install robotframework
-                    pip install -r requirements.txt || true
+                // sh """
+                //     python3 -m venv venv
+                //     . venv/bin/activate
+                //     pip install --upgrade pip
+                //     pip install robotframework
+                //     pip install -r requirements.txt || true
+                // """
+
+                 sh """
+                    apt-get update
+                    apt-get install -y python3 python3-venv python3-pip
+                    pip3 install --upgrade pip
+                    pip3 install robotframework
+                    pip3 install -r requirements.txt || true
                 """
             }
         }
