@@ -43,6 +43,7 @@ Test All Users1
 
 
 
+
 *** Keywords ***
 Access Login  
     [Arguments]     ${UserToLogin}
@@ -54,7 +55,7 @@ LoginItinera
     [Arguments]     ${user}
     Open the url
     LoginOnly    ${user}[username]    ${user}[password]
-    # Verify Login Successful     ${user}
+    Verify Login Successful     ${user} 
     Close Browser
 
 LoginOnly
@@ -76,7 +77,6 @@ Verify Login Successful
     [Arguments]    ${user}
         Wait Until Element Is Visible    id:greetingname-desktop   10s
         ${userInUI}=  Get Text     id:greetingname-desktop
-
         Should Be Equal    ${userInUI}   ${user}[name]
 
 
