@@ -61,7 +61,6 @@ LoginOnly
     [Arguments]     ${username}    ${password}
         Wait Until Element Is Visible    ${email_locator}    10s
         Input Text     ${email_locator}      ${username}
-        
         Wait Until Element Is Visible    ${password_locator}     10s
         Input Text     ${password_locator}   ${password}
         Wait Until Element Is Enabled    ${loginbtn_locator}   10s
