@@ -1,0 +1,14 @@
+==============================================================================
+ItineraTests
+==============================================================================
+ItineraTests.ItineraLogin :: This is the test suite for Itinera Login funct...
+==============================================================================
+Test All Users1                                                       | PASS |
+------------------------------------------------------------------------------
+ItineraTests.ItineraLogin :: This is the test suite for Itinera Lo... | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+ItineraTests                                                          | PASS |
+1 test, 1 passed, 0 failed
+==============================================================================
+Output:  /Users/karen/RobotFramework_Demo1/results/pabot_results/1/output.xml

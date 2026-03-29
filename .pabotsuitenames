@@ -1,0 +1,6 @@
+datasources:dedbb216855887a38c5b8af14abe23bb1e8a716a
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:f0a8acd4be3147bf5ebd83794f324b65bc74a5fb
+--suite ItineraTests.API ItineraLogin
+--suite ItineraTests.ItineraLogin

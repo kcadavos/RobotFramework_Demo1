@@ -1,0 +1,16 @@
+--suite ItineraTests.API ItineraLogin
+--variable CALLER_ID:c577e4eb5c14412ea81d0a925122400e
+--variable PABOTLIBURI:127.0.0.1:8270
+--variable PABOTEXECUTIONPOOLID:0
+--variable PABOTISLASTEXECUTIONINPOOL:0
+--variable PABOTNUMBEROFPROCESSES:8
+--variable PABOTQUEUEINDEX:0
+--variable PABOTLASTLEVEL:ItineraTests.API ItineraLogin
+--outputdir results/pabot_results/0
+--output output.xml
+--log NONE
+--report NONE
+--xunit NONE
+--consolecolors off
+--consolemarkers off
+automation/ItineraTests
