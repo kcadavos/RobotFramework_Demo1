@@ -1,78 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-10T21:11:20.425245" rpa="false" schemaversion="5">
-<suite id="s1" name="ItineraLogin" source="/Users/karen/RobotFramework_Demo1/automation/ItineraLogin.robot">
-<test id="s1-t1" name="Valid username" line="17">
-<kw name="Open the url" type="SETUP">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-03-10T21:11:20.517669" level="INFO">Opening browser 'Chrome' to base url 'https://theitinera.app/LoginPage'.</msg>
-<arg>https://theitinera.app/LoginPage</arg>
-<arg>Chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-03-10T21:11:20.517564" elapsed="2.153426"/>
+<robot generator="Robot 7.4.2 (Python 3.14.3 on darwin)" generated="2026-03-28T23:49:05.323906" rpa="false" schemaversion="5">
+<suite id="s1" name="API ItineraLogin" source="/Users/karen/RobotFramework_Demo1/automation/API_ItineraLogin.robot">
+<test id="s1-t1" name="Login Test" line="17">
+<kw name="Get Token">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-03-28T23:49:05.397978" level="INFO">&amp;{req_body} = { email=karencadavos@gmail.com | password=123 }</msg>
+<var>&amp;{req_body}</var>
+<arg>email=${USERNAME}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-03-28T23:49:05.397614" elapsed="0.000394"/>
 </kw>
-<status status="PASS" start="2026-03-10T21:11:20.517180" elapsed="2.154022"/>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2026-03-28T23:49:06.160957" level="INFO">POST Request : url=https://itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net/User/Login 
+ path_url=/User/Login 
+ headers={'User-Agent': 'python-requests/2.33.0', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '54', 'Content-Type': 'application/json'} 
+ body=b'{"email": "karencadavos@gmail.com", "password": "123"}' 
+ </msg>
+<msg time="2026-03-28T23:49:06.161296" level="INFO">POST Response : url=https://itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net/User/Login 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Sun, 29 Mar 2026 06:49:05 GMT', 'Server': 'Microsoft-IIS/10.0', 'Content-Encoding': 'gzip', 'Set-Cookie': 'ARRAffinity=22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17;Path=/;HttpOnly;Secure;Domain=itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net, ARRAffinitySameSite=22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17;Path=/;HttpOnly;SameSite=None;Secure;Domain=itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net', 'Transfer-Encoding': 'chunked', 'Vary': 'Accept-Encoding', 'X-Powered-By': 'ASP.NET'} 
+ body={"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzQ3NzA1NDYsImlzcyI6Imh0dHBzOi8vaXRpbmVyYWlvYXBpLWNxYXBnc2djYnNjaGM3aHUud2VzdHVzLTAxLmF6dXJld2Vic2l0ZXMubmV0LyIsImF1ZCI6Imh0dHBzOi8vaXRpbmVyYWlvYXBpLWNxYXBnc2djYnNjaGM3aHUud2VzdHVzLTAxLmF6dXJld2Vic2l0ZXMubmV0LyJ9.hMPhFd1v6JGdV6fXJQeL3KYBoU-m-bavmq_ULrXwhmY"} 
+ </msg>
+<msg time="2026-03-28T23:49:06.161742" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}${LoginEndpoint}</arg>
+<arg>json=&amp;{req_body}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2026-03-28T23:49:05.398100" elapsed="0.763698"/>
 </kw>
-<kw name="LoginItinera">
-<kw name="LoginOnly">
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-03-10T21:11:22.671996" elapsed="0.336868"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-28T23:49:06.162253" elapsed="0.001600"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-03-10T21:11:23.009376" level="INFO">Typing text 'testitinera@gmail.com' into text field 'xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/input'.</msg>
-<arg>xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/input</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-10T21:11:23.009012" elapsed="0.098625"/>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-03-28T23:49:06.165256" level="INFO">Length is 1.</msg>
+<arg>${response.json()}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-03-28T23:49:06.164019" elapsed="0.001357"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-03-10T21:11:23.108077" level="INFO">Typing text 'test123' into text field 'xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/input'.</msg>
-<arg>xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/input</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-10T21:11:23.107802" elapsed="0.031069"/>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2026-03-28T23:49:05.397169" elapsed="0.768348"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-03-10T21:11:23.139134" level="INFO">Clicking button 'xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/button'.</msg>
-<arg>xpath=/html/body/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-10T21:11:23.138997" elapsed="0.037204"/>
-</kw>
-<arg>${username}</arg>
-<arg>${password}</arg>
-<status status="PASS" start="2026-03-10T21:11:22.671812" elapsed="0.504486"/>
-</kw>
-<kw name="Verify Login Successful">
-<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
-<arg>${time}</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2026-03-10T21:11:23.176809" elapsed="0.000888"/>
-</kw>
-<kw name="Page Should Contain" owner="SeleniumLibrary">
-<msg time="2026-03-10T21:11:24.087977" level="INFO">Current page contains text 'Hi Test User'.</msg>
-<arg>Hi Test User</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<status status="PASS" start="2026-03-10T21:11:23.177787" elapsed="0.910292"/>
-</kw>
-<status status="PASS" start="2026-03-10T21:11:23.176494" elapsed="0.911675"/>
-</kw>
-<arg>testitinera@gmail.com</arg>
-<arg>test123</arg>
-<status status="PASS" start="2026-03-10T21:11:22.671554" elapsed="1.416661"/>
-</kw>
-<status status="PASS" start="2026-03-10T21:11:20.516811" elapsed="3.571567"/>
+<status status="PASS" start="2026-03-28T23:49:05.396731" elapsed="0.769088"/>
 </test>
-<doc>This is the test suite for Itinera Login functionality.</doc>
-<status status="PASS" start="2026-03-10T21:11:20.426064" elapsed="3.662711"/>
+<test id="s1-t2" name="User Info" line="20">
+<kw name="Get User Info">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2026-03-28T23:49:06.432251" level="INFO">GET Request : url=https://itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net/User/GetUserInfoByEmail/karencadavos@gmail.com 
+ path_url=/User/GetUserInfoByEmail/karencadavos@gmail.com 
+ headers={'User-Agent': 'python-requests/2.33.0', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-03-28T23:49:06.432493" level="INFO">GET Response : url=https://itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net/User/GetUserInfoByEmail/karencadavos@gmail.com 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'Date': 'Sun, 29 Mar 2026 06:49:05 GMT', 'Server': 'Microsoft-IIS/10.0', 'Content-Encoding': 'gzip', 'Set-Cookie': 'ARRAffinity=22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17;Path=/;HttpOnly;Secure;Domain=itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net, ARRAffinitySameSite=22a7daa836b64a8ce56c907737553d08297ff2e76cd06a1f52c29956b9a85c17;Path=/;HttpOnly;SameSite=None;Secure;Domain=itineraioapi-ebdthgaebndcddam.westus2-01.azurewebsites.net', 'Transfer-Encoding': 'chunked', 'Vary': 'Accept-Encoding', 'X-Powered-By': 'ASP.NET'} 
+ body={"id":1,"email":"karencadavos@gmail.com","name":"Karen Anne"} 
+ </msg>
+<msg time="2026-03-28T23:49:06.432860" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}User/GetUserInfoByEmail/${USERNAME}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2026-03-28T23:49:06.167157" elapsed="0.265750"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.json().get("name")}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-03-28T23:49:06.433329" elapsed="0.001601"/>
+</kw>
+<kw name="Compare API And UI Value">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${api_value}</arg>
+<arg>${ui_value}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-03-28T23:49:06.436178" elapsed="0.000497"/>
+</kw>
+<arg>${response.json().get("name")}</arg>
+<arg>${ExpectedName}</arg>
+<status status="PASS" start="2026-03-28T23:49:06.435224" elapsed="0.001558"/>
+</kw>
+<arg>${USERNAME}</arg>
+<arg>Karen Anne</arg>
+<status status="PASS" start="2026-03-28T23:49:06.166761" elapsed="0.270099"/>
+</kw>
+<status status="PASS" start="2026-03-28T23:49:06.166149" elapsed="0.271004"/>
+</test>
+<status status="PASS" start="2026-03-28T23:49:05.324960" elapsed="1.112934"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="ItineraLogin" id="s1" pass="1" fail="0" skip="0">ItineraLogin</stat>
+<stat name="API ItineraLogin" id="s1" pass="2" fail="0" skip="0">API ItineraLogin</stat>
 </suite>
 </statistics>
 <errors>
